@@ -2,6 +2,7 @@ package kodlamaio.hrms.api.controllers;
 
 import java.util.List;
 
+import kodlamaio.hrms.core.utilities.DataResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,11 +35,21 @@ public class CandidateController {
 	public List<Candidate> getAll(){
 		return candidateService.getAll();
 	}
+
 	@PostMapping("/add")
 	public Result add(@RequestBody Candidate candidate)  throws Exception  {
 		return candidateService.add(candidate);
 	}
-	
+
+	@GetMapping("/email")
+	public DataResult<Candidate> getByEmail(@RequestBody Candidate candidate){
+		return candidateService.getByEmail(candidate.getEmail());
+	}
+
+	@GetMapping("/identity")
+	public DataResult<Candidate> getByIdentityNumber(@RequestBody Candidate candidate){
+		return candidateService.getByIdentityNumber(candidate.getIdentityNumber());
+	}
 
 	
 }

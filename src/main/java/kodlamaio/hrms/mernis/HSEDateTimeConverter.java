@@ -12,7 +12,7 @@ package kodlamaio.hrms.mernis;
 import java.util.Date;
 
 
-public interface SVNDateTimeConverter
+public interface HSEDateTimeConverter
 {
     java.util.Date convertDateTime(String strDate);
     java.util.Date convertTime(String strDate);

@@ -24,7 +24,7 @@
     </p>
     <pre>
     <code class="java">
-SVNKPSPublicSoap service = new SVNKPSPublicSoap();
+HSEKPSPublicSoap service = new HSEKPSPublicSoap();
 service.httpHeaders.add(new HeaderProperty("Authorization", "Basic " +
 org.kobjects.base64.Base64.encode("user:password".getBytes())));
 service.TCKimlikNoDogrula();
@@ -117,7 +117,7 @@ for (PropertyInfo info : profileInfo.any)
 
     <pre>
     <code class="java">
-public class MyService extends SVNKPSPublicSoap
+public class MyService extends HSEKPSPublicSoap
 {
     @Override
     protected Transport createTransport() {
@@ -156,7 +156,7 @@ public class MyService extends SVNKPSPublicSoap
 }
         </code>
 </pre>
-    <p>Now to connect to your web service you should use MyService class instead of SVNKPSPublicSoap.</p>
+    <p>Now to connect to your web service you should use MyService class instead of HSEKPSPublicSoap.</p>
 
 <br />
 <br />
@@ -192,7 +192,7 @@ public class MyService extends SVNKPSPublicSoap
     </code>
 </pre>
 <p>
-    Next is to create an instance of this class and set it into SVNExtendedSoapSerializationEnvelope. You need to do this before you connect to your webservice.
+    Next is to create an instance of this class and set it into HSEExtendedSoapSerializationEnvelope. You need to do this before you connect to your webservice.
 </p>
 <pre>
     <code class="java">

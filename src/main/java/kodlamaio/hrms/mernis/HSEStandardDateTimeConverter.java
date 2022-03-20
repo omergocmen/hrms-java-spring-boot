@@ -15,7 +15,7 @@ import java.util.Locale;
 
 
 
-public class SVNStandardDateTimeConverter implements SVNDateTimeConverter
+public class HSEStandardDateTimeConverter implements HSEDateTimeConverter
 {
     public java.util.TimeZone TimeZone=java.util.TimeZone.getTimeZone("UTC");
 
