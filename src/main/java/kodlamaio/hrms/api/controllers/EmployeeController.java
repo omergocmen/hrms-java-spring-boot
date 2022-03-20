@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.EmployeeService;
+import kodlamaio.hrms.core.utilities.Result;
 import kodlamaio.hrms.entities.concretes.Employee;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/api/employees")
@@ -26,6 +30,12 @@ private EmployeeService employeeService;
 	public List<Employee> getll(){
 		return this.employeeService.getAll();
 	}
+	
+	@PostMapping("/add")
+	public Result add(Employee employee) {
+		return employeeService.add(employee);
+	}
+	
 
 	
 	
