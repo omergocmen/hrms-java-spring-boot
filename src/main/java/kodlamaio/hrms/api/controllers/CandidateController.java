@@ -1,21 +1,14 @@
 package kodlamaio.hrms.api.controllers;
 
-import java.util.List;
-
-import kodlamaio.hrms.core.utilities.DataResult;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.core.utilities.DataResult;
 import kodlamaio.hrms.core.utilities.Result;
 import kodlamaio.hrms.entities.concretes.Candidate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-
-
+import java.util.List;
 
 
 @RestController
@@ -31,7 +24,7 @@ public class CandidateController {
 		this.candidateService=candidateService;
 	}
 	
-	@GetMapping("getAll")
+	@GetMapping("/getAll")
 	public List<Candidate> getAll(){
 		return candidateService.getAll();
 	}
@@ -42,13 +35,13 @@ public class CandidateController {
 	}
 
 	@GetMapping("/email")
-	public DataResult<Candidate> getByEmail(@RequestBody Candidate candidate){
-		return candidateService.getByEmail(candidate.getEmail());
+	public DataResult<Candidate> getByEmail(@RequestParam String email){
+		return candidateService.getByEmail(email);
 	}
 
 	@GetMapping("/identity")
-	public DataResult<Candidate> getByIdentityNumber(@RequestBody Candidate candidate){
-		return candidateService.getByIdentityNumber(candidate.getIdentityNumber());
+	public DataResult<Candidate> getByIdentityNumber(@RequestParam String identityNumber){
+		return candidateService.getByIdentityNumber(identityNumber);
 	}
 
 	

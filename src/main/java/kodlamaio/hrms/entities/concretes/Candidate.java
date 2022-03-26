@@ -1,14 +1,17 @@
 package kodlamaio.hrms.entities.concretes;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="candidates")
 public class Candidate extends User {
 	
 	@Column(name="first_name")
@@ -22,5 +25,9 @@ public class Candidate extends User {
 	
 	@Column(name="birth_year")
 	private int birtOfYear;
+
+	@OneToOne
+	@JoinColumn(name = "cv_id")
+	private CurriculumVitae curriculumVitae;
 
 }

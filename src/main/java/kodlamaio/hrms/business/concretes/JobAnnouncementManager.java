@@ -1,10 +1,7 @@
 package kodlamaio.hrms.business.concretes;
 import kodlamaio.hrms.business.abstracts.JobAnnouncementService;
 import kodlamaio.hrms.core.utilities.*;
-import kodlamaio.hrms.dataAccess.abstracts.CityDao;
-import kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
 import kodlamaio.hrms.dataAccess.abstracts.JobAnnouncementDao;
-import kodlamaio.hrms.dataAccess.abstracts.JobPositionsDao;
 import kodlamaio.hrms.entities.concretes.JobAnnouncement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -14,21 +11,11 @@ import java.util.List;
 
 @Service
 public class JobAnnouncementManager implements JobAnnouncementService {
-
-    private JobAnnouncementDao jobAnnouncementDao;
-    private CityDao cityDao;
-    private EmployerDao employerDao;
-    private JobPositionsDao jobPositionsDao;
+    
 
     @Autowired
-    public JobAnnouncementManager(JobAnnouncementDao jobAnnouncementDao, CityDao cityDao, EmployerDao employerDao,
-                                  JobPositionsDao jobPositionsDao) {
-        super();
-        this.jobAnnouncementDao = jobAnnouncementDao;
-        this.cityDao = cityDao;
-        this.employerDao = employerDao;
-        this.jobPositionsDao = jobPositionsDao;
-    }
+    private JobAnnouncementDao jobAnnouncementDao;
+
 
 
     @Override

@@ -16,12 +16,12 @@ public class CityController {
     @Autowired
     private CityService cityService;
 
-    @GetMapping("getall")
+    @GetMapping("/getall")
     public List<City>getAll(){
         return this.cityService.getAll();
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public Result add(@RequestBody City city){
         return this.cityService.add(city);
     }

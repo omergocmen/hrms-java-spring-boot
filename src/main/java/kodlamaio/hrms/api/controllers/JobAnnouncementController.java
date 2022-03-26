@@ -1,11 +1,8 @@
 package kodlamaio.hrms.api.controllers;
-
 import kodlamaio.hrms.business.abstracts.JobAnnouncementService;
 import kodlamaio.hrms.core.utilities.DataResult;
 import kodlamaio.hrms.core.utilities.Result;
 import kodlamaio.hrms.entities.concretes.JobAnnouncement;
-//import kodlamaio.hrms.entities.dtos.JobAnnouncementDto;
-import kodlamaio.hrms.entities.requestEntities.CreateJobAnnouncement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +12,10 @@ import java.util.List;
 @RequestMapping("/api/job_announcements")
 public class JobAnnouncementController {
 
+    @Autowired
     private JobAnnouncementService jobAnnouncementService;
 
-    @Autowired
-    public JobAnnouncementController(JobAnnouncementService jobAnnouncementService) {
-        super();
-        this.jobAnnouncementService = jobAnnouncementService;
-    }
+
 
     @GetMapping("/getAll")
     public DataResult<List<JobAnnouncement>> getAll(){
