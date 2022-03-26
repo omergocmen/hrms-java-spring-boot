@@ -1,21 +1,18 @@
 package kodlamaio.hrms.entities.concretes;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
-
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Table(name="curriculum_viates")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","candidate","jobExperiences","knownLanguages","schoolInformations","abilities","socialAddress"})
 public class CurriculumVitae {
 
     @Id
@@ -40,22 +37,31 @@ public class CurriculumVitae {
 
 
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "curriculumVitae")
     private List<KnownLanguage> knownLanguages;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "curriculumVitae")
     private List<SchoolIn> schoolInformations;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "curriculumVitae")
     private List<JobExperience> jobExperiences;
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "curriculumVitae")
     private List<Ability> abilities;
 
-    @OneToOne(mappedBy = "curriculumVitae")
-    private Candidate candidate;
-
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToOne(mappedBy = "curriculumVitae")
     private SocialAddress socialAddress;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "candidate_id",referencedColumnName = "id")
+    private Candidate candidate;
+
+
 
 }

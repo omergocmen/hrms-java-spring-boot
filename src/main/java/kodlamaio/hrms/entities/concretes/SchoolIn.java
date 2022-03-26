@@ -1,6 +1,7 @@
 package kodlamaio.hrms.entities.concretes;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name="school_informations")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","curriculumVitae"})
 public class SchoolIn {
 
     @Id
@@ -32,6 +32,7 @@ public class SchoolIn {
     @Column(name="end_time")
     private String endTime;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     @JoinColumn(name="cv_id")
     private CurriculumVitae curriculumVitae;
