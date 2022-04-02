@@ -3,6 +3,7 @@ package kodlamaio.hrms.entities.concretes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Table(name="users")
 @AllArgsConstructor
 @NoArgsConstructor
+@CrossOrigin
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 	

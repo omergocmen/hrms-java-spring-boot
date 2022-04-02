@@ -1,6 +1,6 @@
 package kodlamaio.hrms.api.controllers;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import kodlamaio.hrms.business.abstracts.CandidateService;
 import kodlamaio.hrms.core.utilities.DataResult;
 import kodlamaio.hrms.core.utilities.Result;
@@ -12,17 +12,13 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/candidates")
 public class CandidateController {
 
-	
-	
-	private CandidateService candidateService;
-	
 	@Autowired
-	public CandidateController(CandidateService candidateService) {
-		this.candidateService=candidateService;
-	}
+	private CandidateService candidateService;
+
 	
 	@GetMapping("/getAll")
 	public List<Candidate> getAll(){
@@ -33,6 +29,8 @@ public class CandidateController {
 	public Result add(@RequestBody Candidate candidate)  throws Exception  {
 		return candidateService.add(candidate);
 	}
+
+
 
 	@GetMapping("/email")
 	public DataResult<Candidate> getByEmail(@RequestParam String email){

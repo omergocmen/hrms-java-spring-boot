@@ -10,12 +10,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/job_announcements")
+@CrossOrigin
 public class JobAnnouncementController {
 
     @Autowired
     private JobAnnouncementService jobAnnouncementService;
-
-
 
     @GetMapping("/getAll")
     public DataResult<List<JobAnnouncement>> getAll(){

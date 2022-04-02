@@ -12,7 +12,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/JobPositions")
+@RequestMapping("/api/jobpositions")
+@CrossOrigin
 public class JobPositionController {
 
     @Autowired
@@ -23,10 +24,9 @@ public class JobPositionController {
         this.jobPositionService = jobPositionService;
     }
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     public DataResult<List<JobPositions>> getAll(){
         return this.jobPositionService.getAll();
-
     }
 
     @PostMapping("/add")

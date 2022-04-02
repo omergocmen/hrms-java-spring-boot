@@ -23,8 +23,24 @@ public class JobAnnouncement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
     @Column(name="description")
     private String description;
+
+    @Column(name="experience")
+    private String experience;
+
+    @Column(name="education_level")
+    private String educationLevel;
+
+    @Column(name="military")
+    private String military;
+
+    @Column(name="driving_license")
+    private String drivingLicense;
+
+    @Column(name="shift")
+    private String shift;
 
     @Column(name = "open_positions")
     private int openPositions;

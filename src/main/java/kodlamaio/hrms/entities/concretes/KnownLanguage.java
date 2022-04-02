@@ -31,4 +31,6 @@ public class KnownLanguage {
     @JoinColumn(name="cv_id")
     private CurriculumVitae curriculumVitae;
 
+
+
 }

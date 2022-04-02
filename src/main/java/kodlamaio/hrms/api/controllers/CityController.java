@@ -11,12 +11,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cities")
+@CrossOrigin
 public class CityController {
 
     @Autowired
     private CityService cityService;
 
-    @GetMapping("/getall")
+    @GetMapping("/getAll")
     public List<City>getAll(){
         return this.cityService.getAll();
     }
