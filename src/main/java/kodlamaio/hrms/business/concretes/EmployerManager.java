@@ -1,16 +1,16 @@
 package kodlamaio.hrms.business.concretes;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import kodlamaio.hrms.business.abstracts.EmployerService;
+import kodlamaio.hrms.core.utilities.DataResult;
 import kodlamaio.hrms.core.utilities.Result;
+import kodlamaio.hrms.core.utilities.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
 import kodlamaio.hrms.entities.concretes.Employer;
-import kodlamaio.hrms.entities.concretes.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class EmployerManager implements EmployerService{
@@ -29,6 +29,11 @@ public class EmployerManager implements EmployerService{
 		this.employerDao.save(employer);
 		return new SuccessResult("Başarıyla Eklendi");
 	}
-	
+
+	@Override
+	public DataResult<Employer> getByEmail(String email) {
+		return new SuccessDataResult<Employer>(this.employerDao.findByEmail(email),"Data listelendi");
+	}
+
 
 }

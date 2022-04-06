@@ -16,6 +16,12 @@ public class JobAnnouncementController {
     @Autowired
     private JobAnnouncementService jobAnnouncementService;
 
+
+    @GetMapping("/getById")
+    public DataResult<JobAnnouncement> getById(@RequestParam int id){
+        return jobAnnouncementService.getById(id);
+    }
+
     @GetMapping("/getAll")
     public DataResult<List<JobAnnouncement>> getAll(){
         return this.jobAnnouncementService.getAll();

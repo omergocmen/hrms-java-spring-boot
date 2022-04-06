@@ -1,15 +1,14 @@
 package kodlamaio.hrms.business.concretes;
 
-import java.util.List;
-
+import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.core.adapters.abstracts.MernisCheckService;
 import kodlamaio.hrms.core.utilities.*;
+import kodlamaio.hrms.dataAccess.abstracts.CandidateDao;
+import kodlamaio.hrms.entities.concretes.Candidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kodlamaio.hrms.business.abstracts.CandidateService;
-import kodlamaio.hrms.core.adapters.abstracts.MernisCheckService;
-import kodlamaio.hrms.dataAccess.abstracts.CandidateDao;
-import kodlamaio.hrms.entities.concretes.Candidate;
+import java.util.List;
 
 
 @Service
@@ -46,7 +45,7 @@ public class CandidateManager implements CandidateService {
 
 	@Override
 	public DataResult<Candidate> getByEmail(String email) {
-		return new SuccessDataResult<Candidate>(this.candidateDao.getByEmail(email),"Data listelendi");
+		return new SuccessDataResult<Candidate>(this.candidateDao.findByEmail(email),"Data listelendi");
 	}
 	@Override
 	public DataResult<Candidate> getByIdentityNumber(String identity) {
@@ -62,7 +61,7 @@ public class CandidateManager implements CandidateService {
 	}
 
 	private Result isEmailExist(String email) {
-		if(this.candidateDao.getByEmail(email)!= null) {
+		if(this.candidateDao.findByEmail(email)!= null) {
 			return new ErrorResult("Email kullanımda");
 		}
 		return new SuccessResult("Email kullanılabilir");

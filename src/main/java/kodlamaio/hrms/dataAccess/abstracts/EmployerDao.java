@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface EmployerDao extends JpaRepository<Employer, Integer> {
 
     Employer findByEmail(String email);
+
     @Query("From Employer where id=:id")
     Employer getByEmployersIdList(int id);
 

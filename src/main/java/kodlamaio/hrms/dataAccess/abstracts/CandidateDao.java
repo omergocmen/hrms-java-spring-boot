@@ -1,10 +1,9 @@
 package kodlamaio.hrms.dataAccess.abstracts;
 
+import kodlamaio.hrms.entities.concretes.Candidate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import kodlamaio.hrms.entities.concretes.Candidate;
-
 public interface CandidateDao extends JpaRepository<Candidate,Integer>{
-    Candidate getByEmail(String email);
+    Candidate findByEmail(String email);
     Candidate getByIdentityNumber(String identity);
 }

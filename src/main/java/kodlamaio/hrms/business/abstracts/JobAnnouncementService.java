@@ -2,6 +2,7 @@ package kodlamaio.hrms.business.abstracts;
 import kodlamaio.hrms.core.utilities.DataResult;
 import kodlamaio.hrms.core.utilities.Result;
 import kodlamaio.hrms.entities.concretes.JobAnnouncement;
+
 import java.util.List;
 
 
@@ -13,6 +14,8 @@ public interface JobAnnouncementService {
     Result delete(int announcementId);
 
     DataResult<List<JobAnnouncement>> getAll();
+
+    DataResult<JobAnnouncement>getById(int id);
 
     DataResult<List<JobAnnouncement>> findAllByIsActiveTrue();
 

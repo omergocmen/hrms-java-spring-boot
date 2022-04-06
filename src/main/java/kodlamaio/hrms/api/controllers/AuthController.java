@@ -34,6 +34,6 @@ public class AuthController {
         } catch (Exception ex) {
             throw new Exception("invalid username/password");
         }
-        return jwtUtil.generateToken(authRequest.getUserName());
+        return jwtUtil.generateToken(authRequest.getUserName(),authRequest.getClientType());
     }
 }

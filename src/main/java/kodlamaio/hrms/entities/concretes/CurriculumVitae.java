@@ -35,8 +35,6 @@ public class CurriculumVitae {
     @Column(name="profil_image")
     private String profilImage;
 
-
-
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @OneToMany(mappedBy = "curriculumVitae")
     private List<KnownLanguage> knownLanguages;

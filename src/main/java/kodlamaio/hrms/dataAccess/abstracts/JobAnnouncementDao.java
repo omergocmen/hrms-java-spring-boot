@@ -5,7 +5,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-
 import java.util.List;
 
 public interface JobAnnouncementDao extends JpaRepository<JobAnnouncement, Integer> {
@@ -16,6 +15,8 @@ public interface JobAnnouncementDao extends JpaRepository<JobAnnouncement, Integ
     List<JobAnnouncement> getByIsActiveTrueOrderByApplicationDeadlineDesc(Sort sort);
 
     List<JobAnnouncement> findAllByEmployer_CompanyNameAndIsActiveTrue(String companyName);
+
+    JobAnnouncement findById(int id);
 
     List<JobAnnouncement>getByCities_CityName(String cityName);
     List<JobAnnouncement>getByJobPositions_JobExplanation(String cityName);

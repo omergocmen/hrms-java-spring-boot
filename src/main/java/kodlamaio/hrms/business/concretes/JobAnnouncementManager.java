@@ -37,6 +37,11 @@ public class JobAnnouncementManager implements JobAnnouncementService {
     }
 
     @Override
+    public DataResult<JobAnnouncement> getById(int id) {
+        return new SuccessDataResult<JobAnnouncement>(this.jobAnnouncementDao.findById(id),"Data listelendi");
+    }
+
+    @Override
     public DataResult<List<JobAnnouncement>> findAllByIsActiveTrue() {
 
         return new SuccessDataResult<>(this.jobAnnouncementDao.findAllByIsActiveTrue());
@@ -67,9 +72,7 @@ public class JobAnnouncementManager implements JobAnnouncementService {
     }
 
 
-    public DataResult<JobAnnouncement> getById(int id){
-        return new SuccessDataResult(this.jobAnnouncementDao.getById(id));
-    }
+
 
     public Result changeToUnActive(int id) {
         if(getById(id)== null) {

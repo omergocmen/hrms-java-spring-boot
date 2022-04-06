@@ -23,7 +23,6 @@ public class JobAnnouncement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-
     @Column(name="description")
     private String description;
 
@@ -41,6 +40,9 @@ public class JobAnnouncement {
 
     @Column(name="shift")
     private String shift;
+
+    @Column(name="working_type")
+    private String workingType;
 
     @Column(name = "open_positions")
     private int openPositions;
